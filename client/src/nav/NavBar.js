@@ -32,6 +32,11 @@ const Navbar = () => {
                         </div>
 
                     </div>
+                    <div className="right">
+                        <div className="nav_btn">
+                            <a href="">sign in</a>
+                        </div>
+                    </div>
 
                 
             </nav>

@@ -4,7 +4,8 @@ header{
     height: 60px;
     position: fixed;
     top: 0;
-    z-index:2;
+    z-index: 10;
+    
 }
 
 header nav{
@@ -14,21 +15,20 @@ header nav{
     display: flex;
     justify-content: space-around;
     align-items:center;
-    z-index: 4;
+    position: relative;
 }
 
 
   
 header nav .logo {
     display: flex;
+    align-items: center;
     position: relative;
     left:15%;
-
 }
 
 header nav .logo img {
     width: 50px;
-   
 }
 
 header nav .searchbar{
@@ -47,8 +47,9 @@ header nav .searchbar input{
     height: 38px;
     outline:none;
     
+    
 }
-header nav .search_icon{
+header nav .searchbar .search_icon{
     background-color: #df8611;
     height: 40px;
     width: 50px;
@@ -57,8 +58,68 @@ header nav .search_icon{
     align-items: center;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
+}
+
+header nav .right{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+    margin-right: 15px;
+    float:right;
+    position: relative;
+    right:15%;
+}
+
+
+header nav .right .nav_btn a{
+    color: #fff;
+    font-weight: 400;
+    text-decoration: none;
     
+    margin-right: 2px;
+    border: 1px solid #131921;
+    border-radius: 2px;
+    padding: 8px;
     
 }
 
 
+@media (max-width: 480px) {
+    header nav .logo img {
+        width: 40px;
+    }
+
+    header nav .searchbar input {
+        width: 70%;
+    }
+    header nav .search_icon{
+        width :100%;
+    }
+
+    header nav .right .nav_btn a {
+        padding: 6px;
+        font-size: 12px;
+        right: 3px;
+    }
+    header nav .right{
+        right: 3px
+    }
+}
+
+@media (max-width: 768px) {
+    
+    
+    header nav .searchbar input {
+        width: 80%;
+    }
+
+    header nav .right {
+        position: static;
+        margin: 0;
+    }
+    header nav .logo{
+        position: static;
+        margin: 0;
+    }
+}
