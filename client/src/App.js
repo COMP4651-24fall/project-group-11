@@ -7,9 +7,9 @@ import PurchasePage  from "./nav/PurchasePage.js";
 import Navbar from './nav/NavBar';
 function App() {
   return (
-    <>
+    <Router>
     <Navbar/>
-    </>
+    </Router>
   );
 }
 export default App;

@@ -1,6 +1,6 @@
 // PurchasePage.js
 import React from 'react';
-import Navbar from './NavBar';
+
 function PurchasePage() {
   return (
     
