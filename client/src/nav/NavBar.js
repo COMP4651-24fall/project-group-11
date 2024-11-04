@@ -1,33 +1,29 @@
 
 import "./Nav.css"
-import React, { useContext, useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { require } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import LoginPage from './LoginPage';
 import PurchasePage from './PurchasePage';
 
 const Navbar = () => {
+    
     const [text, setText] = useState();
     const [liopen, setLiopen] = useState(true);
-    const navigate = useNavigate();
+    
     const getText = (text) => {
         setText(text)
         setLiopen(false)
     }
-    const handleClick = () => {
-        // 👇️ navigate programmatically
-        navigate('/purchase');
-    };
+    
 
     return (
-
+        
         <header>
             <nav>
-
-
                 <div className="logo">
                     <Link to="/"><img src={require("./web-app.jpg")} alt="logo" ></img></Link>
                 </div>
@@ -52,15 +48,12 @@ const Navbar = () => {
 
 
             </nav>
-            <Routes>
-                <Route path="/" />
-                <Route path="/purchase" element={<PurchasePage />} />
-                <Route path="/login" element={<LoginPage />} />
-            </Routes>
+            
         </header>
 
-
+       
     );
+    
 };
 
 export default Navbar;
