@@ -8,8 +8,6 @@ import Navbar from './nav/NavBar';
 function App() {
   return (
     <>
-    
- 
     <Navbar/>
     </>
   );

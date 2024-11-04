@@ -37,7 +37,7 @@ header nav .searchbar{
     align-items: center;
     margin:0 auto;
     position: relative;
-    
+   
 }
 header nav .searchbar input{
     border:none;
@@ -46,6 +46,7 @@ header nav .searchbar input{
     width: 300px;
     height: 38px;
     outline:none;
+   
     
     
 }
@@ -58,6 +59,7 @@ header nav .searchbar .search_icon{
     align-items: center;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
+    
 }
 
 header nav .right{
@@ -69,6 +71,8 @@ header nav .right{
     float:right;
     position: relative;
     right:15%;
+    
+    
 }
 
 
@@ -81,45 +85,46 @@ header nav .right .nav_btn a{
     border: 1px solid #131921;
     border-radius: 2px;
     padding: 8px;
+    overflow: hidden;
+    
     
 }
 
-
-@media (max-width: 480px) {
-    header nav .logo img {
-        width: 40px;
-    }
-
-    header nav .searchbar input {
-        width: 70%;
-    }
-    header nav .search_icon{
-        width :100%;
-    }
-
-    header nav .right .nav_btn a {
-        padding: 6px;
-        font-size: 12px;
-        right: 3px;
-    }
-    header nav .right{
-        right: 3px
-    }
+header nav .right .shop_cart {
+    position: relative;
+    left:10px;
+    overflow: hidden;
+    
 }
 
-@media (max-width: 768px) {
-    
-    
-    header nav .searchbar input {
-        width: 80%;
-    }
+@media (max-width:750px){
 
-    header nav .right {
-        position: static;
-        margin: 0;
+    header nav .right .nav_btn a{
+        position: relative;
+        left :50px;
+
     }
-    header nav .logo{
-        position: static;
-        margin: 0;
+    header nav .right .shop_cart{
+        position: relative;
+        left :60px;
     }
+   header nav .logo img{
+        position: relative;
+        right :60px;
+   }
 }
+
+@media (max-width:600px){
+
+    header nav .right .nav_btn a{
+        display:none;
+
+    }
+    header nav .right .shop_cart{
+        display: none;;
+    }
+   header nav .logo img{
+        display: none;
+   }
+}
+

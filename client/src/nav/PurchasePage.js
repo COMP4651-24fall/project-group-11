@@ -1,12 +1,14 @@
 // PurchasePage.js
 import React from 'react';
-
+import Navbar from './NavBar';
 function PurchasePage() {
   return (
-    <div>
+    
+    <div >
       <h2>Purchase</h2>
       <p>Purchase functionality will be implemented here.</p>
     </div>
+    
   );
 }
 

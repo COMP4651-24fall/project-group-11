@@ -3,6 +3,7 @@ import "./Nav.css"
 import React, { useContext, useEffect, useState } from 'react'
 import { require } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import LoginPage from './LoginPage';
 import PurchasePage from './PurchasePage';
@@ -34,8 +35,9 @@ const Navbar = () => {
                     </div>
                     <div className="right">
                         <div className="nav_btn">
-                            <a href="">sign in</a>
+                            <a href="/PurchasePage.js">Sign in</a>
                         </div>
+                        <div className="shop_cart"><ShoppingCartIcon/></div>
                     </div>
 
                 
