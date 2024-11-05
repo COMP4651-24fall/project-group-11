@@ -4,8 +4,7 @@ import './Product.css'
 import { products } from './prodcut_detail';
 import 'react-multi-carousel/lib/styles.css';
 import { Divider } from '@mui/material';
-import { NavLink } from "react-router-dom";
-import Slider from "react-slick"
+
 
 const responsive = {
     desktop: {
@@ -22,11 +21,6 @@ const responsive = {
     }
 };
 const Product = () => {
-    var setting = {
-        dots:true,
-        infinite:true,
-        slidesToShow:3
-    }
     return (
 
         <div className='products_section'>
