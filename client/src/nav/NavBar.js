@@ -1,13 +1,11 @@
 
 import "./Nav.css"
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import { require } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Link, NavLink} from "react-router-dom";
-import { useNavigate } from "react-router-dom"
-import LoginPage from './LoginPage';
-import PurchasePage from './PurchasePage';
+import { Link} from "react-router-dom";
+
 
 const Navbar = () => {
     

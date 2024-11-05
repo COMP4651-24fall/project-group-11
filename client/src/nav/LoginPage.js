@@ -1,6 +1,7 @@
 // LoginPage.js
 import React, { useState } from 'react';
-
+import './login.css'
+import './common.css'
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -23,12 +24,28 @@ function LoginPage() {
 
   return (
     <div>
-    <div style={{margin:"100px"}}>
-      This is login page
-    </div>
-    <div>
+      <div className='word'><h2>Please Login</h2></div>
+      <div className='Login_box'>
+        
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+      <div className='password_box'>
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+        <div className="submit_btn">
+          <button onClick={handleLogin}>Login</button>
+        </div>
       
-    </div>
     </div>
   );
 }
