@@ -4,11 +4,27 @@
     display: flex
     
 }
-.Product_detail{
-    
-    border-width: thin;
+.products_section{
+    /* padding: 10px 20px; */
+    width: 98%;
+    margin:10px auto;
+    background-color: #fff;
+    border-radius: 4px;
 }
-
+.products_items img{
+    width: 150px;
+    height: 150px;
+    margin-top: 4px;
+}
+.products_items{
+    margin-top: 10px;
+    
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
 .all_btn{
     background-color:rgb(62, 75, 175);
     padding: 30px,16px;
