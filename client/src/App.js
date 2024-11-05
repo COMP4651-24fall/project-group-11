@@ -8,10 +8,7 @@ import Navbar from './nav/NavBar';
 import Home from "./nav/Home.js";
 function App() {
   return (
-    <div>
-
-      
-      
+    <body>
       <BrowserRouter>
       <Navbar/>
       <Routes>
@@ -21,7 +18,7 @@ function App() {
       </Routes>
       </BrowserRouter>
       
-    </div>
+    </body>
 
   );
 }

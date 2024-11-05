@@ -1,0 +1,21 @@
+.head{
+    align-items: center;
+    justify-content: space-between;
+    display: flex
+    
+}
+.Product_detail{
+    
+    border-width: thin;
+}
+
+.all_btn{
+    background-color:rgb(62, 75, 175);
+    padding: 30px,16px;
+    width: 200px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color:white;
+    
+}
