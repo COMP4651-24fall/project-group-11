@@ -22,8 +22,13 @@ function LoginPage() {
   };
 
   return (
+    <div>
     <div style={{margin:"100px"}}>
       This is login page
+    </div>
+    <div>
+      
+    </div>
     </div>
   );
 }

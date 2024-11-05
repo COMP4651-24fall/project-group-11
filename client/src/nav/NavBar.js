@@ -42,7 +42,7 @@ const Navbar = () => {
                         <Link to="/login">Sign In</Link>
                     </div>
                     <div className="shop_cart" >
-                        <Link to="/purchase"><ShoppingCartIcon /></Link>
+                        <Link to="/purchase"><ShoppingCartIcon sx={{ color: "white" }}/></Link>
                     </div>
                 </div>
 

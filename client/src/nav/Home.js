@@ -1,12 +1,14 @@
 import React from 'react';
-import './common.css'
-function Home() {
+import './common.css';
+import Banner from './HOME/banner.js';
+const Home =() => {
   return (
-    <div className='Square'>
-      <h2>Home</h2>
-      <p>This is the home page</p>
+    
+    <div  className='Square'>
+      <Banner/>
     </div>
     
+   
   );
 }
 
