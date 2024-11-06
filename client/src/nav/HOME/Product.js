@@ -5,7 +5,7 @@ import { products } from './prodcut_detail';
 import 'react-multi-carousel/lib/styles.css';
 import { Divider } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-
+import { useEffect, useState } from "react";
 
 const responsive = {
     desktop: {
@@ -22,6 +22,24 @@ const responsive = {
     }
 };
 const Product = () => {
+    const [items, setItems] = useState([])
+    const [a, setA] = useState([]);
+    
+    const getProductDetail = () => {
+        fetch("http://localhost:8000/product")
+            .then(res => res.json())
+            .then((resJson) => {
+                const data = resJson
+                setItems(data)
+            }
+
+            )
+
+
+    }
+    useEffect(() => {
+        getProductDetail()
+    }, [])
     return (
 
         <div className='products_section'>

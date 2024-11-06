@@ -7,10 +7,10 @@ import PurchasePage from "./nav/PurchasePage.js";
 import Navbar from './nav/NavBar';
 import Home from "./nav/Home.js";
 import Register from "./nav/register.js";
-import Product_intro from "./nav/HOME/Buy.js";
+import Productintro from "./nav/HOME/Buy.js";
 function App() {
   return (
-    <body>
+    <div>
       <BrowserRouter>
       <Navbar/>
       <Routes>
@@ -18,11 +18,11 @@ function App() {
                 <Route path="/purchase" element={<PurchasePage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/product/:id" element={<Product_intro />} />
+                <Route path="/product/:id" element={<Productintro />} />
       </Routes>
       </BrowserRouter>
       
-    </body>
+    </div>
 
   );
 }

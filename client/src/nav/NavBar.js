@@ -29,7 +29,7 @@ const Navbar = () => {
 
                     <input type="text" name=""
                         onChange={(e) => getText(e.target.value)}
-                        placeholder="Search Your Products" class="searchbar" />
+                        placeholder="Search Your Products" className="searchbar" />
                     <div className="search_icon">
                         <SearchIcon />
                     </div>
