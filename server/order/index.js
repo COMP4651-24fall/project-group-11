@@ -1,10 +1,10 @@
 const express = require("express");
 
 const app = express();
-const PORT = 8020;
+const PORT = 8040;
 
 app.get('/', (req, res) => {
-    res.send("product-service");
+    res.send("order");
 })
 
 app.listen(PORT, () => {
