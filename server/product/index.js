@@ -43,7 +43,6 @@ app.get('/:type', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-        console.log(req)
     const { type, description, image_url, price } = req.body;
 
     const query = `
@@ -61,5 +60,5 @@ app.post('/', (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-    console.log(`User Service running on http://localhost:${process.env.PORT}`);
+    console.log(`Product Service running on http://localhost:${process.env.PORT}`);
 });

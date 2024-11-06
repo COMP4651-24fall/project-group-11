@@ -8,5 +8,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`User Service running on http://localhost:${PORT}`);
+    console.log(`Order Service running on http://localhost:${PORT}`);
 });
