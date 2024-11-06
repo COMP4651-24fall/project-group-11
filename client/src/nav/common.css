@@ -32,6 +32,11 @@
   display: flex;
   justify-content: center;
 }
+.register{
+  margin-top :10px;
+  display: flex;
+  justify-content: center;
+}
 .submit_btn button{
   background-color: blueviolet;
   border-radius: 20px;

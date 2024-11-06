@@ -1,6 +1,6 @@
 // LoginPage.js
 import React, { useState } from 'react';
-import './login.css'
+import { Link} from "react-router-dom";
 import './common.css'
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -23,6 +23,7 @@ function LoginPage() {
   };
 
   return (
+    <>
     <div>
       <div className='word'><h2>Please Login</h2></div>
       <div className='Login_box'>
@@ -45,8 +46,15 @@ function LoginPage() {
         <div className="submit_btn">
           <button onClick={handleLogin}>Login</button>
         </div>
+        <div className="register">
+          <Link to ="/register">Press here to register</Link>
+        </div>
       
     </div>
+    
+    
+      
+    </>
   );
 }
 

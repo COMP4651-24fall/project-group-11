@@ -4,6 +4,7 @@ import './Product.css'
 import { products } from './prodcut_detail';
 import 'react-multi-carousel/lib/styles.css';
 import { Divider } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 
 const responsive = {
@@ -32,33 +33,30 @@ const Product = () => {
             <Carousel
                 responsive={responsive}
                 infinite={true}
-                draggable={true}
-                swipeable={true}
+                
+               
                 centerMode={true}
-                autoPlay={true}
-                autoPlaySpeed={4000}
+                
                 keyBoardControl={true}
                 showDots={false}
                 navButtonsAlwaysVisible={true}
                 dotListClass="custom-dot-list-style"
                 containerClass="carousel-container"
                 itemClass="carousel-item-padding-40-px"
-                
-
             >
                 {
                     products.map((e) => {
                         return (
-                            
+                            <NavLink to={`/product/${e.id}`}>
                             <div className="products_items">
                                 <div className="product_img">
                                     <img src={e.url} alt="product" />
                                 </div>
                                 <p className="products_name">{e.title.shortTitle}</p>
                                 <p className="products_offer" style={{ color: "#  007185" }}>{e.discount}</p>
+                                <p className="products_explore">{e.tagline}</p>
                             </div>
-                            
-
+                            </NavLink>
                         )
                     })
                 }
