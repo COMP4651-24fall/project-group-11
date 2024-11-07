@@ -17,13 +17,13 @@ const Productintro = () => {
 
     }
     useEffect(() => {
-        getProductDetail()
+        
     }, [])
-    const product = items.find(item => item.product_id === 1);
+    //const product = items.find(item => item.product_id === 1);
     return (
 
         <div>
-            <p className="Square">The product ID is {product.product_id}</p>
+            <p className="Square">The product ID is </p>
             </div>
     )
 }

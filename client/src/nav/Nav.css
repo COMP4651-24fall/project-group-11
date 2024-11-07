@@ -37,15 +37,32 @@ header nav .searchbar{
     align-items: center;
     margin:0 auto;
     position: relative;
+    left:20px;
+    border-color: #131921;
    
+}
+header nav .overallbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.list{
+    border-color: #131921;
+    display: grid;
+    place-items: center;
+    align-items: center;
+    
+    width: 350px;
+    margin:0 auto;
 }
 header nav .searchbar input{
     border:none;
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
-    width: 300px;
+    width: 350px;
     height: 38px;
     outline:none;
+    margin: 0 auto;
    
     
     
@@ -59,6 +76,7 @@ header nav .searchbar .search_icon{
     align-items: center;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
+    position: relative;
     
 }
 
@@ -70,7 +88,7 @@ header nav .right{
     margin-right: 15px;
     float:right;
     position: relative;
-    right:15%;
+    right:10%;
     
     
 }
@@ -115,7 +133,7 @@ header nav .right .shop_cart {
    }
 }
 
-@media (max-width:600px){
+@media (max-width:700px){
 
     header nav .right .nav_btn a{
         display:none;

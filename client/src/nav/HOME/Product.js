@@ -38,7 +38,7 @@ const Product = () => {
 
     }
     useEffect(() => {
-        getProductDetail()
+        
     }, [])
     return (
 
