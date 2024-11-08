@@ -1,6 +1,6 @@
 export const products = [
     { 
-        id: 'product2',
+        id: 'product1',
         url: 'https://media.karousell.com/media/photos/products/2024/8/20/_ps4_ps5_____black_myth_wukong_1724131899_0eae8c9b_progressive', 
         detailUrl: 'https://rukminim1.flixcart.com/image/416/416/kapoo7k0/electric-kettle/p/6/s/pigeon-favourite-original-imafs7xhj5uwgrh4.jpeg?q=70',
         title: {
@@ -80,7 +80,7 @@ export const products = [
             cost: 1124,
             discount: '40%'
         },
-        description: '',
+        description: 'Just a fan',
         discount: 'From ₹499', 
         tagline: 'Kubra, Nova & more' 
     }

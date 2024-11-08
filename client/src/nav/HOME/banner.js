@@ -8,7 +8,7 @@ const data=[
 ]
 const Banner = ()=>{
     return(
-    <>
+    <div className='Banner'>
     <Carousel
     className='banner'
     autoPlay={true}
@@ -27,7 +27,7 @@ const Banner = ()=>{
     }
 
     </Carousel>
-    </>
+    </div>
     );
 
     

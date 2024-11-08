@@ -26,6 +26,7 @@ function LoginPage() {
     <>
     <div>
       <div className='word'><h2>Please Login</h2></div>
+      <div className='login'>
       <div className='Login_box'>
         
         <input
@@ -46,6 +47,7 @@ function LoginPage() {
         <div className="submit_btn">
           <button onClick={handleLogin}>Login</button>
         </div>
+      </div>  
         <div className="register">
           <Link to ="/register">Press here to register</Link>
         </div>

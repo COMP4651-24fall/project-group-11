@@ -25,13 +25,25 @@ const Productintro = () => {
     const prod = products.find(i => i.id == ID)
     console.log(ID)
     return (
-        
-                <div>
-                    <p className="Square">The product ID is {prod.id}</p>
-                    <img src={prod.url}/>
-                </div>
-          
+        <div className="detail">
+            <div right>
 
+
+                <div className="test">
+                    <img src={prod.url} style={{ margin: "0 auto" }} />
+                    <button>Add to cart</button>
+                </div>
+            </div>
+            <div className="purchase">
+                <p className="Title">{prod.title.longTitle}</p>
+                <div className="Price">Cost: {prod.price.cost}</div>
+                <div style={{fontSize:"20px"}}>About the item:</div>
+                <p className="description">
+                    
+                    <div>{prod.description}</div>
+                </p>
+            </div>
+        </div>
     )
 }
 
