@@ -8,6 +8,7 @@ import Navbar from './nav/NavBar';
 import Home from "./nav/Home.js";
 import Register from "./nav/register.js";
 import Productintro from "./nav/HOME/Buy.js";
+
 function App() {
   return (
     <div>
@@ -21,9 +22,7 @@ function App() {
                 <Route path="/product/:id" element={<Productintro />} />
       </Routes>
       </BrowserRouter>
-      
     </div>
-
   );
 }
 export default App;

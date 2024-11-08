@@ -9,27 +9,20 @@ const data=[
 const Banner = ()=>{
     return(
     <div className='Banner'>
-    <Carousel
-    className='banner'
-    autoPlay={true}
-    animation='slide'
-    navButtonsAlwaysInvisible={true}
-    cycleNavigation={true}
-   >
-        {
-        data.map((image,i)=>{
-            return(
-                <>
-                    <img src ={image} alt="" className='banner_img'/>
-                </>
-            )
-        })
-    }
-
-    </Carousel>
+      <Carousel
+      className='banner'
+      autoPlay={true}
+      animation='slide'
+      navButtonsAlwaysInvisible={true}
+      cycleNavigation={true}
+      >
+          {
+              data.map((image)=>{
+                  return(<img src ={image} alt="" className='banner_img'/>)
+              })
+          }
+      </Carousel>
     </div>
     );
-
-    
 }
 export default Banner;

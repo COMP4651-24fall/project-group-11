@@ -1,7 +1,6 @@
 import Carousel from 'react-multi-carousel'
 import React from 'react'
 import './Product.css'
-import { products } from './prodcut_detail';
 import 'react-multi-carousel/lib/styles.css';
 import { Divider } from '@mui/material';
 import { NavLink } from 'react-router-dom';
@@ -21,6 +20,7 @@ const responsive = {
         items: 1
     }
 };
+
 const Product = () => {
     const [items, setItems] = useState([])
     const [a, setA] = useState([]);
@@ -32,16 +32,13 @@ const Product = () => {
                 const data = resJson
                 setItems(data)
             }
-
-            )
-
-
+        )
     }
     useEffect(() => {
-        
+        getProductDetail();
     }, [])
     return (
-
+        
         <div className='products_section'>
             <div className='head'>
                 <h3 style={{ fontSize: "30px" }}>Deal of the day</h3>
@@ -51,10 +48,7 @@ const Product = () => {
             <Carousel
                 responsive={responsive}
                 infinite={true}
-
-
                 centerMode={true}
-
                 keyBoardControl={true}
                 showDots={false}
                 navButtonsAlwaysVisible={true}
@@ -63,26 +57,21 @@ const Product = () => {
                 itemClass="carousel-item-padding-40-px"
             >
                 {
-                    products.map((e) => {
+                    items.map((e) => {
                         return (
-                            <NavLink to={`/product/${e.id}`}>
+                            <NavLink to={`/product/${e.product_id}`}>
                                 <div className="products_items">
                                     <div className="product_img">
-                                        <img src={e.url} alt="product" />
+                                        <img src={e.image_url} alt="product" />
                                     </div>
-                                    <p className="products_name">{e.title.shortTitle}</p>
+                                    <p className="products_name">{e.title}</p>
                                 </div>
                             </NavLink>
                         )
                     })
                 }
-
             </Carousel>
         </div>
-
-
     )
-
-
 }
 export default Product;

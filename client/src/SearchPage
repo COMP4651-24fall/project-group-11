@@ -10,7 +10,6 @@ function SearchPage() {
     const data = await response.json();
     setResults(data.items);
   };
-
   return (
     <div>
       <Navbar/>
@@ -30,5 +29,4 @@ function SearchPage() {
     </div>
   );
 }
-
 export default SearchPage;
