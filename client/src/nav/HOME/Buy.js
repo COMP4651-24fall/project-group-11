@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { products } from './prodcut_detail';
 import { useEffect, useState } from "react";
+
 const Productintro = () => {
     const params = useParams()
     const [items, setItems] = useState([])

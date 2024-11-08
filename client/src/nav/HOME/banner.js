@@ -8,7 +8,6 @@ const data=[
 ]
 const Banner = ()=>{
     return(
-    <>
     <Carousel
     className='banner'
     autoPlay={true}
@@ -17,19 +16,11 @@ const Banner = ()=>{
     cycleNavigation={true}
    >
         {
-        data.map((image,i)=>{
-            return(
-                <>
-                    <img src ={image} alt="" className='banner_img'/>
-                </>
-            )
-        })
-    }
-
+            data.map((image)=>{
+                return(<img src ={image} alt="" className='banner_img'/>)
+            })
+        }
     </Carousel>
-    </>
     );
-
-    
 }
 export default Banner;

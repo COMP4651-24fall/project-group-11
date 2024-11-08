@@ -5,7 +5,6 @@ import Product from './HOME/Product.js';
 
 
 const Home = () => {
-
   return (
     <div>
       <div className='Square'>
@@ -15,9 +14,6 @@ const Home = () => {
         <Product />
       </div>
     </div>
-
-
   );
 }
-
 export default Home;
