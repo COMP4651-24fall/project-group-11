@@ -17,7 +17,7 @@ export const products = [
         tagline: 'Deal of the day' 
     },
     { 
-        id: 'product1',
+        id: 'product2',
         url: 'https://rukminim1.flixcart.com/image/416/416/kl6wx3k0/sandwich-maker/8/r/d/sandwich-01-flipkart-smartbuy-original-imagydds4zthxt8z.jpeg?q=70', 
         detailUrl: 'https://rukminim1.flixcart.com/image/416/416/kl6wx3k0/sandwich-maker/8/r/d/sandwich-01-flipkart-smartbuy-original-imagydds4zthxt8z.jpeg?q=70',
         title: {
@@ -34,7 +34,7 @@ export const products = [
         tagline: 'Pestige, Nova & more' 
     },
     { 
-        id: 'product1',
+        id: 'product3',
         url: 'https://rukminim1.flixcart.com/image/150/150/kohigsw0/resistance-tube/c/s/e/new-adjustable-single-resistance-tube-multicolor-na-ajro-deal-original-imag2xg88mhmwxz5.jpeg?q=70', 
         detailUrl: 'https://rukminim1.flixcart.com/image/416/416/kohigsw0/resistance-tube/c/s/e/new-adjustable-single-resistance-tube-multicolor-na-ajro-deal-original-imag2xg88mhmwxz5.jpeg?q=70', 
         title: {
@@ -80,7 +80,7 @@ export const products = [
             cost: 1124,
             discount: '40%'
         },
-        description: '',
+        description: 'Just a fan',
         discount: 'From ₹499', 
         tagline: 'Kubra, Nova & more' 
     }

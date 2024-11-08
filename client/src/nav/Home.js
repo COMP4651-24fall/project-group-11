@@ -7,7 +7,7 @@ import Product from './HOME/Product.js';
 const Home = () => {
   return (
     <div>
-      <div className='Square'>
+      <div className='banner'>
         <Banner />
       </div>
       <div className='Product'>

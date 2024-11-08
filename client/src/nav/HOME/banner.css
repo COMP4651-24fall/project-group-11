@@ -1,4 +1,11 @@
 .banner_img{
+    display: flex;
     width: 100vw;
-    height: 600px;
+    height: 600px; 
+    z-index: 99;
+}
+
+.banner{
+    position: relative;
+    width:100vw;
 }

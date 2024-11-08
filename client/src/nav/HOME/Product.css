@@ -1,10 +1,12 @@
 .head{
+   
     align-items: center;
     justify-content: space-between;
     display: flex
     
 }
 .products_section{
+    margin:0 auto;
     /* padding: 10px 20px; */
     width: 98%;
     margin:10px auto;
