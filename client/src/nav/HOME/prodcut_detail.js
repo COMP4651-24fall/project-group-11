@@ -1,6 +1,6 @@
 export const products = [
     { 
-        id: 'product1',
+        id: 'product2',
         url: 'https://media.karousell.com/media/photos/products/2024/8/20/_ps4_ps5_____black_myth_wukong_1724131899_0eae8c9b_progressive', 
         detailUrl: 'https://rukminim1.flixcart.com/image/416/416/kapoo7k0/electric-kettle/p/6/s/pigeon-favourite-original-imafs7xhj5uwgrh4.jpeg?q=70',
         title: {
@@ -17,7 +17,7 @@ export const products = [
         tagline: 'Deal of the day' 
     },
     { 
-        id: 'product1',
+        id: 'product2',
         url: 'https://rukminim1.flixcart.com/image/416/416/kl6wx3k0/sandwich-maker/8/r/d/sandwich-01-flipkart-smartbuy-original-imagydds4zthxt8z.jpeg?q=70', 
         detailUrl: 'https://rukminim1.flixcart.com/image/416/416/kl6wx3k0/sandwich-maker/8/r/d/sandwich-01-flipkart-smartbuy-original-imagydds4zthxt8z.jpeg?q=70',
         title: {
@@ -34,7 +34,7 @@ export const products = [
         tagline: 'Pestige, Nova & more' 
     },
     { 
-        id: 'product1',
+        id: 'product3',
         url: 'https://rukminim1.flixcart.com/image/150/150/kohigsw0/resistance-tube/c/s/e/new-adjustable-single-resistance-tube-multicolor-na-ajro-deal-original-imag2xg88mhmwxz5.jpeg?q=70', 
         detailUrl: 'https://rukminim1.flixcart.com/image/416/416/kohigsw0/resistance-tube/c/s/e/new-adjustable-single-resistance-tube-multicolor-na-ajro-deal-original-imag2xg88mhmwxz5.jpeg?q=70', 
         title: {
