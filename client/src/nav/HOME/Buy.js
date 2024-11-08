@@ -37,10 +37,10 @@ const Productintro = () => {
             <div className="purchase">
                 <p className="Title">{prod.title.longTitle}</p>
                 <div className="Price">Cost: {prod.price.cost}</div>
-                <div style={{fontSize:"20px"}}>About the item:</div>
+                <div style={{fontSize:"20px"}}> About the item:</div>
                 <p className="description">
                     
-                    <div>{prod.description}</div>
+                    <div> {prod.description}</div>
                 </p>
             </div>
         </div>
