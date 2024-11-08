@@ -19,17 +19,16 @@ header nav{
     z-index:100;
 }
 
-
-  
 header nav .logo {
     display: flex;
     align-items: center;
     position: relative;
-    left:15%;
+    left:5%;
+    top: 6px;
 }
 
 header nav .logo img {
-    width: 50px;
+    width: 45px;
 }
 
 header nav .searchbar{
@@ -112,9 +111,9 @@ header nav .right .nav_btn a{
 header nav .right .shop_cart {
     color:#fff;
     position: relative;
-    left:10px;
+    left:15px;
     overflow: hidden;
-    
+    top:5px;
 }
 
 @media (max-width:750px){

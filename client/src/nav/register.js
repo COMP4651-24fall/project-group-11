@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './common.css'
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
 function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -8,7 +9,6 @@ function Register() {
     const handleLogin = async () => {
       // Encrypt the password (simplified example)
       const encryptedPassword = btoa(password); // Replace with AES encryption
-  
       const response = await fetch('/api/login', {
         method: 'POST',
         headers: {
@@ -16,7 +16,6 @@ function Register() {
         },
         body: JSON.stringify({ username, password: encryptedPassword }),
       });
-  
       const result = await response.json();
       alert(result.message);
     };
@@ -45,11 +44,7 @@ function Register() {
           <div className="submit_btn">
             <button onClick={handleLogin}>Register</button>
           </div>
-        
       </div>
-      
-      
-        
       </>
     );
   }

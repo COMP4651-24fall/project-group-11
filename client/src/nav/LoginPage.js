@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link} from "react-router-dom";
 import './common.css'
+
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +29,6 @@ function LoginPage() {
       <div className='word'><h2>Please Login</h2></div>
       <div className='login'>
       <div className='Login_box'>
-        
         <input
           type="text"
           placeholder="Username"
@@ -51,13 +51,8 @@ function LoginPage() {
         <div className="register">
           <Link to ="/register">Press here to register</Link>
         </div>
-      
     </div>
-    
-    
-      
     </>
   );
 }
-
 export default LoginPage;
