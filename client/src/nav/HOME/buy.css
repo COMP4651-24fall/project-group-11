@@ -8,19 +8,20 @@
     border-style:solid;
     border-color: gray;
     position: relative;
-    left:15%;
+    left:20%;
     margin-top: 5%;
     width: 50%;
     align-items: center;
-    
 }
+
 .detail{
-    margin-top: 60px;
+    margin-top: 100px;
     display: flex;
 }
+
 .test {
-    margin-top: 10px;
-    width: 50%;
+    margin-top: 20px;
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,22 +30,23 @@
 }
 
 .test img {
-   
-    width: 400px;
-    height: 100%;
+    width: 350px;
+    height: 80%;
 }
+
 .test button{
-    margin-top: 5%;
+    margin-top: 15%;
     position: relative;
     left:45%;
-    width: 250px;
-    font-size: 20px;
+    width: 180px;
+    font-size: 18px;
     height: 50px;
     color: white;
     background-color: chocolate;
     border-style: none;
     border-radius: 25px;
 }
+
 .description{
     display: flex;
     flex-direction: column;
@@ -53,15 +55,23 @@
     font-size: 20px;
     max-height: 300px;
     width :100%;
-    
-  
 }
 .Price{
-
     position: relative;
     left:2%;
     color: gray;
     margin-bottom: 10%;
     margin-top: 20px;
     font-size: 20px;
+}
+
+.notification {
+    position: fixed;
+    top: 6%;
+    left: 0;
+    width: 100%;
+    background-color: #0b7222;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
