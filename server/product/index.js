@@ -42,6 +42,19 @@ app.get('/:type', (req, res) => {
     });
 });
 
+app.get('/id/:id', (req, res) => {
+    const product_id = req.params.id;
+    const query = 'SELECT * FROM products WHERE product_id = ?';
+
+    db.query(query, [product_id], (err, results) => {
+        if (err) {
+            console.error('Error retrieving products by Product Id:', err);
+            return res.status(500).json({ error: 'Error retrieving products' });
+        }
+        res.json(results[0]); //only return one product
+    });
+});
+
 app.post('/', (req, res) => {
     const { type, description, image_url, price } = req.body;
 
