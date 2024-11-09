@@ -35,6 +35,7 @@ const Navbar = () => {
                 throw new Error('Failed to fetch product details');
             }
         } catch (error) {
+            setItems([])
             console.error(error);
         }
     };

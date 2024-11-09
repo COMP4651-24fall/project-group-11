@@ -1,77 +1,94 @@
-.Square{
-  margin-top :60px;
-}
-.banner{
-  margin-top:60px;
+.Square {
+  margin-top: 60px;
 }
 
-.word{
-  margin-top :60px;
+.banner {
+  margin-top: 60px;
+}
+
+.word {
+  margin-top: 60px;
   display: flex;
   justify-content: center;
 }
-.login{
-  width :30%;
-  height:300px;
-  margin:0 auto;
+
+.login {
+  width: 30%;
+  height: 300px;
+  margin: 0 auto;
   border-style: solid;
 }
-.Login_box{
-    margin-top :10px;
-    display: flex;
-    justify-content: center;
-   
+
+.Login_box {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+
 }
-.Login_box input{
+
+.Login_box input {
   width: 20%;
   height: 50px;
   width: 90%;
 }
 
-.password_box{
-  margin-top :40px;
+.password_box {
+  margin-top: 40px;
   display: flex;
   justify-content: center;
 }
-.password_box input{
-  width:20%;
+
+.password_box input {
+  width: 20%;
   height: 50px;
   width: 90%;
 }
-.submit_btn{
-  margin-top :-10%;
+
+.submit_btn {
+  margin-top: -10%;
   display: flex;
   justify-content: center;
-  
+
 }
-.register{
-  margin-top :10px;
+
+.register {
+  margin-top: 10px;
   display: flex;
   justify-content: center;
 }
-.submit_btn button{
+
+.submit_btn button {
   margin-top: 20%;
   background-color: blueviolet;
   border-radius: 20px;
   color: aliceblue;
-  border-width:0;
+  border-width: 0;
   width: 60%;
   height: 30px;
 }
-.Login_box input{
-  margin-top :30px;
+
+.Login_box input {
+  margin-top: 30px;
 }
-.Product{
-    
-    background-color:white;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 3px;
-    
-    border-style: solid;
-    border-color: black;
-    border-width:thin;
 
-  }
+.Product {
 
-  
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 3px;
+
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+
+}
+
+.userregister {
+  width: 30%;
+  height: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border-style: solid
+}

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-  
+    const [email,setEmail] = useState('')
     const handleLogin = async () => {
       // Encrypt the password (simplified example)
       const encryptedPassword = btoa(password); // Replace with AES encryption
@@ -24,8 +24,8 @@ function Register() {
       <>
       <div>
         <div className='word'><h2>Register</h2></div>
+        <div className='userregister'>
         <div className='Login_box'>
-          
           <input
             type="text"
             placeholder="Username"
@@ -41,8 +41,17 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <div className='password_box'>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
           <div className="submit_btn">
             <button onClick={handleLogin}>Register</button>
+          </div>
           </div>
       </div>
       </>

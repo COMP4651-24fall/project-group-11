@@ -26,16 +26,22 @@ const Product = () => {
   const [a, setA] = useState([]);
 
   const getProductDetail = () => {
-    fetch("http://localhost:8000/product")
-      .then((res) => res.json())
-      .then((resJson) => {
-        const data = resJson;
-        setItems(data);
-      });
+    try {
+      fetch("http://localhost:8000/product")
+        .then((res) => res.json())
+        .then((resJson) => {
+          const data = resJson;
+          setItems(data);
+        });
+    } catch (error) {
+      setItems([])
+    }
   };
   useEffect(() => {
+    try{
     getProductDetail();
-    console.log("abc");
+    }catch(error){setItems([])}
+    
   }, []);
   return (
     <div className="products_section">
