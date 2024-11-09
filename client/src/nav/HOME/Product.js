@@ -41,8 +41,8 @@ const Product = () => {
     try{
     getProductDetail();
     }catch(error){setItems([])}
-    
   }, []);
+
   return (
     <div className="products_section">
       <div className="head">

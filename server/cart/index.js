@@ -31,20 +31,32 @@ app.get('/:user_id', (req, res) => {
     });
 });
 
+app.get('/', (req, res) => {
+    const query = 'SELECT * FROM carts';
+    
+    db.query(query, (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        
+        res.json(results);
+    });
+});
+
 app.post('/', (req, res) => {
     const { user_id, product_id } = req.body;
-    try {
-        const existingCartItem = db.query('SELECT * FROM carts WHERE user_id = ? AND product_id = ?', [user_id, product_id]);
-        if (existingCartItem.length > 0) {
-          db.query('UPDATE carts SET quantity = quantity + 1 WHERE user_id = ? AND product_id = ?', [user_id, product_id]);
+    db.query('SELECT * FROM carts WHERE user_id = ? AND product_id = ?', [user_id, product_id], (err, results) => {
+        if (err) {
+            console.error('Error adding item to cart:', err);
+            res.status(500).json({ error: 'An error occurred while adding item to cart' });
+        }
+        if (results != null && results.length > 0) {
+            db.query('UPDATE carts SET quantity = quantity + 1 WHERE user_id = ? AND product_id = ?', [user_id, product_id]);
         } else {
-          db.query('INSERT INTO carts (user_id, product_id, quantity) VALUES (?, ?, 1)', [user_id, product_id]);
+            db.query('INSERT INTO carts (user_id, product_id, quantity) VALUES (?, ?, 1)', [user_id, product_id]);
         }
         res.status(200).json({ message: 'Item added to cart successfully' });
-    } catch (error) {
-        console.error('Error adding item to cart:', error);
-        res.status(500).json({ error: 'An error occurred while adding item to cart' });
-    }
+    });
 });
 
 app.listen(process.env.PORT, () => {

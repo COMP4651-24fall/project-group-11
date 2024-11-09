@@ -17,8 +17,11 @@ const cartSlice = createSlice({
     }
   }
 })
+
 const Productintro = () => {
   const { id } = useParams();
+  const [message, setMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [item, setItem] = useState(null);
 
   const getProductDetail = async () => {
@@ -31,12 +34,39 @@ const Productintro = () => {
         setItem(data);
     } catch (error) {
         console.error("Error fetching product details:", error);
+    } 
+  };
+
+  getProductDetail()
+
+  const addToCart = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('http://localhost:8000/cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({user_id: 1, product_id: parseInt(id)}),
+      });
+      setMessage('Item added to cart successfully!');
+    } catch (error) {
+      setMessage('An error occurred. Please try again later.');
+      console.error('Error adding item to cart:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    getProductDetail();
-  }, []);
+    let timer;
+    if (message) {
+        timer = setTimeout(() => {
+            setMessage(null);
+        }, 1000);
+        return () => clearTimeout(timer);
+    }
+  }, [message]);
 
 return (
   <div className="detail">
@@ -45,7 +75,10 @@ return (
         <div className="right">
           <div className="test">
             <img src={item.image_url} style={{ margin: "0 auto" }} />
-            <button>Add to cart</button>
+            <button onClick={addToCart} disabled={loading}>
+                {loading ? 'Adding to Cart...' : 'Add to Cart'}
+            </button>
+            {message && <div className="notification">{message}</div>}
           </div>
         </div>
         <div className="purchase">
