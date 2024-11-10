@@ -48,9 +48,7 @@ const Product = () => {
     <div className="products_section">
       <div className="head">
         <h3 style={{ fontSize: "30px" }}>Deal of the day</h3>
-        <button className="all_btn" style={{ fontSize: "30px" }}>
-          View All
-        </button>
+        
       </div>
       <Divider sx={{ bgcolor: "black" }} />
       <Carousel

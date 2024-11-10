@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { require } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Link } from "react-router-dom";
+import { Link,BrowserRouter } from "react-router-dom";
 import { SearchList } from "./filter_result.js";
 
 const Navbar = () => {
@@ -68,7 +68,9 @@ const Navbar = () => {
                     </div>
                 </nav>
                 <div className="list">
+                    
                     <SearchList results={list} />
+                  
                 </div>
             </div>
         </header>
