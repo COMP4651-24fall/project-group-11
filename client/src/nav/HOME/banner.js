@@ -17,8 +17,8 @@ const Banner = ()=>{
       cycleNavigation={true}
       >
           {
-              data.map((image)=>{
-                  return(<img src ={image} alt="" className='banner_img'/>)
+              data.map((image,i)=>{
+                  return(<img key ={i} src ={image} alt="" className='banner_img'/>)
               })
           }
       </Carousel>

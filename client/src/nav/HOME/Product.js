@@ -31,6 +31,7 @@ const Product = () => {
         .then((res) => res.json())
         .then((resJson) => {
           const data = resJson;
+          console.log(data);
           setItems(data);
         });
     } catch (error) {
