@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const getProductDetail = async () => {
     try {
-      const response = await fetch("http://localhost:8000/product");
+      const response = await fetch(`${process.env.REACT_APP_API}/product`);
       if (response.ok) {
         const data = await response.json();
         setItems(data);

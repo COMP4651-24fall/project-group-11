@@ -10,7 +10,7 @@ const ProductDetail = ({ product_id }) => {
     const fetchProductDetail = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/product/id/${product_id}`
+          `${process.env.REACT_APP_API}/product/id/${product_id}`
         );
         if (!response.ok) {
           throw new Error("Unable to fetch product details");
@@ -45,11 +45,14 @@ const PurchasePage = () => {
 
   const getCart = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/cart/${user_id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API}/cart/${user_id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch cart details");
       }
@@ -64,7 +67,7 @@ const PurchasePage = () => {
   const sendOrder = async () => {
     try {
       setLoading(true);
-      // const response = await fetch(`http://localhost:8000/cart/${user_id}`);
+      // const response = await fetch(`${process.env.REACT_APP_API}/cart/${user_id}`);
       // if (!response.ok) {
       //     throw new Error('Failed to fetch product details');
       // }

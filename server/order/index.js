@@ -18,8 +18,6 @@ const app = express();
 
 app.use(express.json());
 
-
-
 app.listen(process.env.PORT, () => {
     console.log(`Cart Service running on http://localhost:${process.env.PORT}`);
 });

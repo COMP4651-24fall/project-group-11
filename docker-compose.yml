@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    environment:
+      - API=gateway:8000
+    networks:
+      - comp4651
+
+  gateway:
+    build:
+      context: ./server/gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - USER_SERVICE=user:8010
+      - PRODUCT_SERVICE=product:8020
+      - CART_SERVICE=cart:8030
+      - ORDER_SERVICE=order:8040
+    networks:
+      - comp4651
+
+  user:
+    build:
+      context: ./server/user
+    ports:
+      - "8010:8010"
+    networks:
+      - comp4651
+
+  product:
+    build:
+      context: ./server/product
+    ports:
+      - "8020:8020"
+    networks:
+      - comp4651
+
+  cart:
+    build:
+      context: ./server/cart
+    ports:
+      - "8030:8030"
+    networks:
+      - comp4651
+
+  order:
+    build:
+      context: ./server/order
+    ports:
+      - "8040:8040"
+    networks:
+      - comp4651
+
+networks:
+  comp4651:

@@ -27,9 +27,9 @@ const Product = () => {
 
   const getProductDetail = async () => {
     try {
-      const response = await fetch("http://localhost:8000/product");
+      const response = await fetch(`${process.env.REACT_APP_API}/product`);
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
       const data = await response.json();
       setItems(data);
@@ -39,16 +39,18 @@ const Product = () => {
   };
 
   useEffect(() => {
-    try{
-    getProductDetail();
-    }catch(error){setItems([])}
+    try {
+      getProductDetail();
+      console.log(process.env.REACT_APP_API);
+    } catch (error) {
+      setItems([]);
+    }
   }, []);
 
   return (
     <div className="products_section">
       <div className="head">
         <h3 style={{ fontSize: "30px" }}>Deal of the day</h3>
-        
       </div>
       <Divider sx={{ bgcolor: "black" }} />
       <Carousel
@@ -64,7 +66,11 @@ const Product = () => {
       >
         {items ? (
           items.map((e) => (
-            <NavLink to={`/product/${e.product_id}`} state={{ product: e }} key={e.product_id}>
+            <NavLink
+              to={`/product/${e.product_id}`}
+              state={{ product: e }}
+              key={e.product_id}
+            >
               <div className="products_items">
                 <div className="product_img">
                   <img src={e.image_url} alt="product" />

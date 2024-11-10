@@ -12,7 +12,7 @@ function LoginPage() {
     // Encrypt the password (simplified example)
     // const encryptedPassword = btoa(password); // Use HTTPS and backend will encrypt then store in db
 
-    const response = await fetch("http://localhost:8000/user/signin", {
+    const response = await fetch(`${process.env.REACT_APP_API}/user/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -19,10 +19,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/user', proxy('http://localhost:8010'))
-app.use('/product', proxy('http://localhost:8020'))
-app.use('/cart', authenticateJWT, proxy('http://localhost:8030'))
-app.use('/order', authenticateJWT, proxy('http://localhost:8040'))
+app.use('/user', proxy(process.env.USER_SERVICE))
+app.use('/product', proxy(process.env.PRODUCT_SERVICE))
+app.use('/cart', authenticateJWT, proxy(process.env.CART_SERVICE))
+app.use('/order', authenticateJWT, proxy(process.env.ORDER_SERVICE))
 
 app.listen(process.env.PORT, () => {
     console.log(`API gateway running on http://localhost:${process.env.PORT}`);
