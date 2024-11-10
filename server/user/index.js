@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 require('dotenv').config();
 
 const db = mysql.createConnection({
@@ -43,14 +44,23 @@ app.post('/signin', (req, res) => {
     db.query(query, [email], (err, results) => {
         if (err) {
             console.error('Error creating product:', err);
-            return res.status(500).json({ error: 'Error creating product' });
+            return res.status(500).json({ error: 'Error' });
         }
         if (!results.length || !bcrypt.compareSync(password, results[0].password)) {
             return res.status(400).json({ error: 'Incorrect email/password' });
         }
-        res.status(200).json({ message: 'Login Success' });
+        const getUsername = `SELECT username FROM users WHERE email = ?`;
+        db.query(getUsername, [email], (err, results) => {
+            if (err) {
+                console.error('Error creating product:', err);
+                return res.status(500).json({ error: 'Error' });
+            }
+            const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+            res.status(200).json({ message: 'Login Success', username: results[0].username, token });
+        })
     });
 })
+
 
 app.listen(process.env.PORT, () => {
     console.log(`User Service running on http://localhost:${process.env.PORT}`);
