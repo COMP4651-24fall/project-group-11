@@ -25,19 +25,19 @@ const Product = () => {
   const [items, setItems] = useState([]);
   const [a, setA] = useState([]);
 
-  const getProductDetail = () => {
+  const getProductDetail = async () => {
     try {
-      fetch("http://localhost:8000/product")
-        .then((res) => res.json())
-        .then((resJson) => {
-          const data = resJson;
-          console.log(data);
-          setItems(data);
-        });
+      const response = await fetch("http://localhost:8000/product");
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setItems(data);
     } catch (error) {
-      setItems([])
+      setItems([]);
     }
   };
+
   useEffect(() => {
     try{
     getProductDetail();
@@ -64,9 +64,9 @@ const Product = () => {
         containerClass="carousel-container"
         itemClass="carousel-item-padding-40-px"
       >
-        {items.map((e) => {
-          return (
-            <NavLink to={`/product/${e.product_id}`} state={{ product: e }}>
+        {items ? (
+          items.map((e) => (
+            <NavLink to={`/product/${e.product_id}`} state={{ product: e }} key={e.product_id}>
               <div className="products_items">
                 <div className="product_img">
                   <img src={e.image_url} alt="product" />
@@ -74,8 +74,10 @@ const Product = () => {
                 <p className="products_name">{e.title}</p>
               </div>
             </NavLink>
-          );
-        })}
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
       </Carousel>
     </div>
   );

@@ -47,7 +47,7 @@ const Productintro = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({user_id: 1, product_id: parseInt(id)}),
+        body: JSON.stringify({user_id: 1, product_id: parseInt(id)}),         // hardcoded: need to change later
       });
       setMessage('Item added to cart successfully!');
     } catch (error) {
