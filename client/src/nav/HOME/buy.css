@@ -47,6 +47,10 @@
     border-radius: 25px;
 }
 
+button {
+    cursor: pointer;
+}
+
 .description{
     display: flex;
     flex-direction: column;
