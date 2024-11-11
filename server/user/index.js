@@ -49,14 +49,14 @@ app.post('/signin', (req, res) => {
         if (!results.length || !bcrypt.compareSync(password, results[0].password)) {
             return res.status(400).json({ error: 'Incorrect email/password' });
         }
-        const getUsername = `SELECT username FROM users WHERE email = ?`;
+        const getUsername = `SELECT user_id, username FROM users WHERE email = ?`;
         db.query(getUsername, [email], (err, results) => {
             if (err) {
                 console.error('Error creating product:', err);
                 return res.status(500).json({ error: 'Error' });
             }
             const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-            res.status(200).json({ message: 'Login Success', username: results[0].username, token });
+            res.status(200).json({ message: 'Login Success', userId: results[0].user_id, username: results[0].username, token });
         })
     });
 })
