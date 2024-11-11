@@ -12,6 +12,7 @@ const Navbar = () => {
   const [items, setItems] = useState([]);
   const username = localStorage.getItem("username");
   const token = localStorage.getItem("token");
+  
   const navigate = useNavigate();
 
   const [liopen, setLiopen] = useState(true);
@@ -64,7 +65,6 @@ const Navbar = () => {
         handleLogout();
       }
     };
-
     const interval = setInterval(checkTokenExpiration, 60000);
 
     return () => clearInterval(interval);

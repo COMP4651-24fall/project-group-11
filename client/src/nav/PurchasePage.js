@@ -38,7 +38,8 @@ const ProductDetail = ({ product_id }) => {
 };
 
 const PurchasePage = () => {
-  const user_id = 1; // hardcoded: need to change later
+  // const user_id = 1; // hardcoded: need to change later
+  const user_id = localStorage.getItem("userId");
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
@@ -49,7 +50,7 @@ const PurchasePage = () => {
         `${process.env.REACT_APP_API}/cart/${user_id}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            "Authorization": `Bearer ${token}`,
           },
         }
       );
