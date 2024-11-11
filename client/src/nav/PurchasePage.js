@@ -2,6 +2,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./purchasepage.css";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetail = ({ product_id }) => {
   const [productDetail, setProductDetail] = useState(null);
@@ -43,6 +44,7 @@ const PurchasePage = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   const getCart = async () => {
     try {
@@ -54,6 +56,9 @@ const PurchasePage = () => {
           },
         }
       );
+      if (response.status == 403) {
+        navigate('/login')
+      }
       if (!response.ok) {
         throw new Error("Failed to fetch cart details");
       }
