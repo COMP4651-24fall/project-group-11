@@ -23,6 +23,8 @@ const Productintro = () => {
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [item, setItem] = useState(null);
+  const user_id = localStorage.getItem("userId");
+  const token = localStorage.getItem("token");
 
   const getProductDetail = async () => {
     try {
@@ -39,8 +41,6 @@ const Productintro = () => {
     }
   };
 
-  getProductDetail();
-
   const addToCart = async () => {
     try {
       setLoading(true);
@@ -48,8 +48,9 @@ const Productintro = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
         },
-        body: JSON.stringify({ user_id: 1, product_id: parseInt(id) }), // hardcoded: need to change later
+        body: JSON.stringify({ user_id, product_id: id }),
       });
       setMessage("Item added to cart successfully!");
     } catch (error) {
@@ -59,6 +60,10 @@ const Productintro = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    getProductDetail();
+  }, []);
 
   useEffect(() => {
     let timer;
