@@ -58,6 +58,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    getProductDetail();
     const checkTokenExpiration = () => {
       if (isTokenExpired(token)) {
         handleLogout();

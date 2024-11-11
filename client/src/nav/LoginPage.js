@@ -23,6 +23,7 @@ function LoginPage() {
     const result = await response.json();
     localStorage.setItem("token", result.token);
     localStorage.setItem("username", result.username);
+    localStorage.setItem("userId", result.userId)
     alert(result.message);
     navigate("/");
   };
