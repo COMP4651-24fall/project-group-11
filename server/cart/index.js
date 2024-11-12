@@ -20,11 +20,11 @@ app.use(express.json());
 
 app.get('/:user_id', (req, res) => {
     const user_id = req.params.user_id;
-    const query = 'SELECT * FROM carts WHERE user_id = ?';
+    const query = 'SELECT c.*, p.* FROM cart.carts AS c JOIN product.products AS p ON c.product_id = p.product_id WHERE c.user_id = ?';
     
     db.query(query, [user_id], (err, results) => {
         if (err) {
-            console.error('Error retrieving cart items by user id:', err);
+            console.error('Error retrieving all cart items by user id:', err);
             return res.status(500).json({ error: 'Error retrieving cart' });
         }
         res.json(results);
