@@ -20,11 +20,11 @@ app.use(express.json());
 
 app.get('/:user_id', (req, res) => {
     const user_id = req.params.user_id;
-    const query = 'SELECT * FROM carts WHERE user_id = ?';
+    const query = 'SELECT c.*, p.* FROM cart.carts AS c JOIN product.products AS p ON c.product_id = p.product_id WHERE c.user_id = ?';
     
     db.query(query, [user_id], (err, results) => {
         if (err) {
-            console.error('Error retrieving cart items by user id:', err);
+            console.error('Error retrieving all cart items by user id:', err);
             return res.status(500).json({ error: 'Error retrieving cart' });
         }
         res.json(results);
@@ -43,7 +43,22 @@ app.get('/', (req, res) => {
     });
 });
 
-app.post('/', (req, res) => {
+app.post('/delete', (req, res) => {
+    const { user_id } = req.body;
+    const query = `
+        DELETE FROM carts
+        WHERE user_id = ?
+    `;
+    db.query(query, [user_id], (err, results) => {
+        if (err) {
+            console.error('Error removing cart items:', err);
+            return res.status(500).json({ error: 'Error removing cart items' });
+        }
+        res.status(200).json({ message: 'Cart items removed for user ID', userId: user_id });
+    });
+});
+
+app.post('/add', (req, res) => {
     const { user_id, product_id } = req.body;
     db.query('SELECT * FROM carts WHERE user_id = ? AND product_id = ?', [user_id, product_id], (err, results) => {
         if (err) {
