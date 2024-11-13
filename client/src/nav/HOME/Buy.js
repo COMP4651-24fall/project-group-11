@@ -1,22 +1,22 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { createSlice } from "@reduxjs/toolkit";
+// import { createSlice } from "@reduxjs/toolkit";
 import "./buy.css";
 
-const initial = {
-  cartItems: [],
-  cartTotalQuantity: 0,
-  cartTotoalNumber: 0,
-};
-const cartSlice = createSlice({
-  name: "cart",
-  initial,
-  reducers: {
-    addToCart(state, action) {
-      state.cartItems.push(action.payload);
-    },
-  },
-});
+// const initial = {
+//   cartItems: [],
+//   cartTotalQuantity: 0,
+//   cartTotoalNumber: 0,
+// };
+// const cartSlice = createSlice({
+//   name: "cart",
+//   initial,
+//   reducers: {
+//     addToCart(state, action) {
+//       state.cartItems.push(action.payload);
+//     },
+//   },
+// });
 
 const Productintro = () => {
   const { id } = useParams();
@@ -44,7 +44,7 @@ const Productintro = () => {
   const addToCart = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${process.env.REACT_APP_API}/cart`, {
+      const response = await fetch(`${process.env.REACT_APP_API}/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
