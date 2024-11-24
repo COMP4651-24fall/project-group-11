@@ -12,10 +12,7 @@ const Navbar = () => {
   const [items, setItems] = useState([]);
   const username = localStorage.getItem("username");
   const token = localStorage.getItem("token");
-  
   const navigate = useNavigate();
-
-  const [liopen, setLiopen] = useState(true);
 
   const applyFilter = (searchTerm) => {
     if (searchTerm != "") {
@@ -52,22 +49,22 @@ const Navbar = () => {
 
   const isTokenExpired = (token) => {
     if (!token) return true;
-
     const decodedToken = jwtDecode(token);
     const currentTime = Date.now() / 1000;
-
     return decodedToken.exp < currentTime;
   };
 
   useEffect(() => {
     getProductDetail();
+  }, [])
+
+  useEffect(() => {
     const checkTokenExpiration = () => {
       if (isTokenExpired(token)) {
         handleLogout();
       }
     };
     const interval = setInterval(checkTokenExpiration, 60000);
-
     return () => clearInterval(interval);
   }, [token]);
 

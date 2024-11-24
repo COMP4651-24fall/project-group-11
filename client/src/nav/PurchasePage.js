@@ -98,7 +98,7 @@ const PurchasePage = () => {
       const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
       setPrice(totalPrice);
     } catch (error) {
-      setItems([]);
+      setPrice(null);
     }
   }, [items]);
 

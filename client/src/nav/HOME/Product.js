@@ -23,7 +23,6 @@ const responsive = {
 
 const Product = () => {
   const [items, setItems] = useState([]);
-  const [a, setA] = useState([]);
 
   const getProductDetail = async () => {
     try {
