@@ -1,8 +1,8 @@
-// PurchasePage.js
 import React from "react";
 import { useEffect, useState } from "react";
-import "./purchasepage.css";
 import { useNavigate } from "react-router-dom";
+// ----------------------------------------------------------------
+import "./subPages_CSS/CartPage.css";
 
 const PurchasePage = () => {
   const [items, setItems] = useState([]);
@@ -98,7 +98,7 @@ const PurchasePage = () => {
       const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
       setPrice(totalPrice);
     } catch (error) {
-      setItems([]);
+      setPrice(null);
     }
   }, [items]);
 

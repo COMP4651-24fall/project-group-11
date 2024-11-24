@@ -1,7 +1,8 @@
 import React from 'react';
-import './common.css';
-import Banner from './HOME/banner.js';
-import Product from './HOME/Product.js';
+// ----------------------------------------------------------------
+import './subPages_CSS/common.css';
+import Banner from './Home_Components/Banner.js';
+import Product from './Home_Components/Products.js';
 
 
 const Home = () => {

@@ -1,21 +1,19 @@
-import "./Nav.css";
-import React, { useState, useEffect } from "react";
 import { require } from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link, useNavigate } from "react-router-dom";
-import { SearchList } from "./filter_result.js";
 import { jwtDecode } from "jwt-decode";
+import React, { useState, useEffect } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import { Link, useNavigate } from "react-router-dom";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// ----------------------------------------------------------------
+import "./subPages_CSS/NavBar.css";
+import { SearchList } from "./NavBar_Components/Filter_Result.js";
 
 const Navbar = () => {
   const [list, setlist] = useState();
   const [items, setItems] = useState([]);
   const username = localStorage.getItem("username");
   const token = localStorage.getItem("token");
-  
   const navigate = useNavigate();
-
-  const [liopen, setLiopen] = useState(true);
 
   const applyFilter = (searchTerm) => {
     if (searchTerm != "") {
@@ -52,22 +50,22 @@ const Navbar = () => {
 
   const isTokenExpired = (token) => {
     if (!token) return true;
-
     const decodedToken = jwtDecode(token);
     const currentTime = Date.now() / 1000;
-
     return decodedToken.exp < currentTime;
   };
 
   useEffect(() => {
     getProductDetail();
+  }, [])
+
+  useEffect(() => {
     const checkTokenExpiration = () => {
       if (isTokenExpired(token)) {
         handleLogout();
       }
     };
     const interval = setInterval(checkTokenExpiration, 60000);
-
     return () => clearInterval(interval);
   }, [token]);
 

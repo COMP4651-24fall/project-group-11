@@ -1,22 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import { createSlice } from "@reduxjs/toolkit";
-import "./buy.css";
-
-// const initial = {
-//   cartItems: [],
-//   cartTotalQuantity: 0,
-//   cartTotoalNumber: 0,
-// };
-// const cartSlice = createSlice({
-//   name: "cart",
-//   initial,
-//   reducers: {
-//     addToCart(state, action) {
-//       state.cartItems.push(action.payload);
-//     },
-//   },
-// });
+// ----------------------------------------------------------------
+import "./subPages_CSS/ProductDetail.css";
 
 const Productintro = () => {
   const { id } = useParams();
