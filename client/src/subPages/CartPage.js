@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "./subPages_CSS/CartPage.css";
 import { useNavigate } from "react-router-dom";
 
-const CartPage = () => {
+const PurchasePage = () => {
   const [items, setItems] = useState([]);
   const [message, setMessage] = useState(null);
   const [totalPrice, setPrice] = useState(null);
