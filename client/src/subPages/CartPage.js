@@ -1,8 +1,8 @@
-// PurchasePage.js
 import React from "react";
 import { useEffect, useState } from "react";
-import "./subPages_CSS/CartPage.css";
 import { useNavigate } from "react-router-dom";
+// ----------------------------------------------------------------
+import "./subPages_CSS/CartPage.css";
 
 const PurchasePage = () => {
   const [items, setItems] = useState([]);

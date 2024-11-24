@@ -1,6 +1,7 @@
 import React from 'react'
-import './Banner.css'
 import Carousel from 'react-material-ui-carousel'
+// ----------------------------------------------------------------
+import './Banner.css'
 
 const data=[
     "https://cdn.shopify.com/s/files/1/0651/6670/4885/files/Best_Motherboard.webp?v=1695560087",

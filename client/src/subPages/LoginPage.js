@@ -1,6 +1,6 @@
-// LoginPage.js
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+// ----------------------------------------------------------------
 import "./subPages_CSS/common.css";
 
 function LoginPage() {
@@ -11,7 +11,6 @@ function LoginPage() {
   const handleLogin = async () => {
     // Encrypt the password (simplified example)
     // const encryptedPassword = btoa(password); // Use HTTPS and backend will encrypt then store in db
-
     const response = await fetch(`${process.env.REACT_APP_API}/user/signin`, {
       method: "POST",
       headers: {

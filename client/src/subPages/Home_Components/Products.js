@@ -1,10 +1,11 @@
-import Carousel from "react-multi-carousel";
 import React from "react";
-import "./Products.css";
-import "react-multi-carousel/lib/styles.css";
 import { Divider } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+// ----------------------------------------------------------------
+import "./Products.css";
 
 const responsive = {
   desktop: {

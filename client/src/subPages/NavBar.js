@@ -1,11 +1,12 @@
-import "./subPages_CSS/NavBar.css";
-import React, { useState, useEffect } from "react";
 import { require } from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link, useNavigate } from "react-router-dom";
-import { SearchList } from "./NavBar_Components/Filter_Result.js";
 import { jwtDecode } from "jwt-decode";
+import React, { useState, useEffect } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import { Link, useNavigate } from "react-router-dom";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// ----------------------------------------------------------------
+import "./subPages_CSS/NavBar.css";
+import { SearchList } from "./NavBar_Components/Filter_Result.js";
 
 const Navbar = () => {
   const [list, setlist] = useState();

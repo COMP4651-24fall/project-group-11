@@ -1,5 +1,6 @@
-import './main_CSS/App.css';
 import {  BrowserRouter,Route, Routes, } from "react-router-dom";
+// ----------------------------------------------------------------
+import './main_CSS/App.css';
 import Navbar from './subPages/NavBar.js';
 import Home from "./subPages/Home.js";
 import PurchasePage from "./subPages/CartPage.js";
