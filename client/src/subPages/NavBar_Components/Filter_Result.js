@@ -1,5 +1,5 @@
 import React from 'react'
-import './filter_result.css'
+import './Filter_Result.css'
 
 export const SearchList=({results=[]})=>{
     return(

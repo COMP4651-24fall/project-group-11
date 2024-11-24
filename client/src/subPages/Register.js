@@ -1,46 +1,45 @@
-// LoginPage.js
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./common.css";
+import "./subPages_CSS/common.css";
 
-function LoginPage() {
-  const [email, setEmail] = useState("");
+function Register() {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
+  const [email, setEmail] = useState("");
   const handleLogin = async () => {
     // Encrypt the password (simplified example)
     // const encryptedPassword = btoa(password); // Use HTTPS and backend will encrypt then store in db
-
-    const response = await fetch(`${process.env.REACT_APP_API}/user/signin`, {
+    const response = await fetch(`${process.env.REACT_APP_API}/user/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, username, password }),
     });
-
     const result = await response.json();
-    localStorage.setItem("token", result.token);
-    localStorage.setItem("username", result.username);
-    localStorage.setItem("userId", result.userId)
     alert(result.message);
-    navigate("/");
   };
 
   return (
     <>
       <div>
         <div className="word">
-          <h2>Please Login</h2>
+          <h2>Register</h2>
         </div>
-        <div className="login">
+        <div className="userregister">
           <div className="Login_box">
             <input
-              type="text"
+              type="email"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="Login_box">
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="password_box">
@@ -52,14 +51,11 @@ function LoginPage() {
             />
           </div>
           <div className="submit_btn">
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleLogin}>Register</button>
           </div>
-        </div>
-        <div className="register">
-          <Link to="/register">Press here to register</Link>
         </div>
       </div>
     </>
   );
 }
-export default LoginPage;
+export default Register;
