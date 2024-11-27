@@ -5,7 +5,7 @@ exports.handler = async (event) => {
   const methodArn = event.methodArn;
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const policy = generatePolicy(decoded.email, "Allow", methodArn);
+    const policy = generatePolicy(decoded.email, "Allow", "*");
     return policy;
   } catch (err) {
     console.error("Authorization error:", err);
