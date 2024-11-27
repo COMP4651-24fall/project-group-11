@@ -48,7 +48,6 @@
   margin-top: -10%;
   display: flex;
   justify-content: center;
-
 }
 
 .register {
@@ -63,8 +62,9 @@
   border-radius: 20px;
   color: aliceblue;
   border-width: 0;
-  width: 60%;
-  height: 30px;
+  width: 25%;
+  height: 40px;
+  font-size: 16px;
 }
 
 .Login_box input {
@@ -72,23 +72,18 @@
 }
 
 .Product {
-
   background-color: white;
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 3px;
-
   border-style: solid;
   border-color: black;
   border-width: thin;
-
 }
 
 .userregister {
   width: 30%;
   height: 400px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
   border-style: solid
 }
