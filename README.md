@@ -2,5 +2,6 @@
 # Project
 Starter code of COMP4651 group project
 
-To run our code, checkout branch main, use docker compose, env variable is ourdated, plz ask for the new one if needed.
+To run our code, checkout branch main, use docker compose, env variable is outdated, plz ask for the new one if needed.
+
 Checkout branch lambda and cd server to see the code deployed on Amazon lambda.
