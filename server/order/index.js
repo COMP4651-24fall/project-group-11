@@ -1,5 +1,7 @@
 const express = require("express");
+const cors = require('cors');
 const mysql = require("mysql");
+const serverless = require("serverless-http");
 require('dotenv').config();
 
 const db = mysql.createConnection({
@@ -15,10 +17,12 @@ db.connect((err) => {
 })
 
 const app = express();
-
 app.use(express.json());
+app.use(cors());
 
-app.post('/create-order', (req, res) => {
+const orderRouter = express.Router();
+
+orderRouter.post('/create-order', (req, res) => {
     const { user_id, total_price } = req.body;
     const orderQuery = `
         INSERT INTO orders (user_id, total_price, status) 
@@ -34,7 +38,7 @@ app.post('/create-order', (req, res) => {
     });
 });
 
-app.post('/add-order-items', (req, res) => {
+orderRouter.post('/add-order-items', (req, res) => {
     const { orderItemsValues } = req.body;
     const orderItemsQuery = `
         INSERT INTO order_items (order_id, product_id, quantity)
@@ -49,6 +53,6 @@ app.post('/add-order-items', (req, res) => {
     });
 });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Cart Service running on http://localhost:${process.env.PORT}`);
-});
+app.use('/order', orderRouter);
+
+module.exports.handler = serverless(app);

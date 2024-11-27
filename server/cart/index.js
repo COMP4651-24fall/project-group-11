@@ -1,5 +1,7 @@
 const express = require("express");
+const cors = require('cors');
 const mysql = require("mysql");
+const serverless = require("serverless-http");
 require('dotenv').config();
 
 const db = mysql.createConnection({
@@ -15,10 +17,12 @@ db.connect((err) => {
 })
 
 const app = express();
-
 app.use(express.json());
+app.use(cors());
 
-app.get('/:user_id', (req, res) => {
+const cartRouter = express.Router();
+
+cartRouter.get('/:user_id', (req, res) => {
     const user_id = req.params.user_id;
     const query = 'SELECT c.*, p.* FROM cart.carts AS c JOIN product.products AS p ON c.product_id = p.product_id WHERE c.user_id = ?';
     
@@ -31,7 +35,7 @@ app.get('/:user_id', (req, res) => {
     });
 });
 
-app.get('/', (req, res) => {
+cartRouter.get('/', (req, res) => {
     const query = 'SELECT * FROM carts';
     
     db.query(query, (err, results) => {
@@ -43,7 +47,7 @@ app.get('/', (req, res) => {
     });
 });
 
-app.post('/delete', (req, res) => {
+cartRouter.post('/delete', (req, res) => {
     const { user_id } = req.body;
     const query = `
         DELETE FROM carts
@@ -58,7 +62,7 @@ app.post('/delete', (req, res) => {
     });
 });
 
-app.post('/add', (req, res) => {
+cartRouter.post('/add', (req, res) => {
     const { user_id, product_id } = req.body;
     db.query('SELECT * FROM carts WHERE user_id = ? AND product_id = ?', [user_id, product_id], (err, results) => {
         if (err) {
@@ -74,6 +78,6 @@ app.post('/add', (req, res) => {
     });
 });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Cart Service running on http://localhost:${process.env.PORT}`);
-});
+app.use('/cart', cartRouter);
+
+module.exports.handler = serverless(app);

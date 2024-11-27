@@ -1,5 +1,7 @@
 const express = require("express");
+const cors = require('cors');
 const mysql = require("mysql");
+const serverless = require("serverless-http");
 require('dotenv').config();
 
 const db = mysql.createConnection({
@@ -11,16 +13,18 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
     if (err) throw err;
-    console.log("Connected");
-})
+    console.log("Connected to RDS");
+});
 
 const app = express();
-
 app.use(express.json());
+app.use(cors());
 
-app.get('/', (req, res) => {
+const productRouter = express.Router();
+
+productRouter.get('/', (req, res) => {
     const query = 'SELECT * FROM products';
-    
+  
     db.query(query, (err, results) => {
         if (err) {
             return res.status(500).json({ error: err.message });
@@ -29,10 +33,10 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/:type', (req, res) => {
+productRouter.get('/:type', (req, res) => {
     const type = req.params.type;
     const query = 'SELECT * FROM products WHERE type = ?';
-    
+  
     db.query(query, [type], (err, results) => {
         if (err) {
             console.error('Error retrieving products by type:', err);
@@ -42,7 +46,7 @@ app.get('/:type', (req, res) => {
     });
 });
 
-app.get('/id/:id', (req, res) => {
+productRouter.get('/id/:id', (req, res) => {
     const product_id = req.params.id;
     const query = 'SELECT * FROM products WHERE product_id = ?';
 
@@ -51,11 +55,11 @@ app.get('/id/:id', (req, res) => {
             console.error('Error retrieving products by Product Id:', err);
             return res.status(500).json({ error: 'Error retrieving products' });
         }
-        res.json(results[0]); //only return one product
+        res.json(results[0]); // Only return one product
     });
 });
 
-app.post('/', (req, res) => {
+productRouter.post('/', (req, res) => {
     const { type, description, image_url, price } = req.body;
 
     const query = `
@@ -72,6 +76,6 @@ app.post('/', (req, res) => {
     });
 });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Product Service running on http://localhost:${process.env.PORT}`);
-});
+app.use('/product', productRouter);
+
+module.exports.handler = serverless(app);

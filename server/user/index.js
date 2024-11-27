@@ -1,4 +1,6 @@
 const express = require("express");
+const cors = require('cors');
+const serverless = require("serverless-http");
 const mysql = require("mysql");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -17,10 +19,12 @@ db.connect((err) => {
 })
 
 const app = express();
-
 app.use(express.json());
+app.use(cors());
 
-app.post('/signup', (req, res) => {
+const userRouter = express.Router();
+
+userRouter.post('/signup', (req, res) => {
     const { email, password, username } = req.body;
 
     const query = `
@@ -37,7 +41,7 @@ app.post('/signup', (req, res) => {
     });
 })
 
-app.post('/signin', (req, res) => {
+userRouter.post('/signin', (req, res) => {
     const { email, password } = req.body;
 
     const query = `SELECT password FROM users WHERE email = ?`;
@@ -61,7 +65,6 @@ app.post('/signin', (req, res) => {
     });
 })
 
+app.use('/user', userRouter);
 
-app.listen(process.env.PORT, () => {
-    console.log(`User Service running on http://localhost:${process.env.PORT}`);
-});
+module.exports.handler = serverless(app);
