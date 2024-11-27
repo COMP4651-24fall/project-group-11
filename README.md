@@ -3,5 +3,6 @@
 Starter code of COMP4651 group project
 
 To run our code, checkout branch main, use docker compose, env variable is outdated, plz ask for the new one if needed.
-
+To safe cost, the frontend app deployed on EC2 is stopped. Please contact us to restart the app.
 Checkout branch lambda and cd server to see the code deployed on Amazon lambda.
+
