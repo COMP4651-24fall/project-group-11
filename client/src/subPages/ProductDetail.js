@@ -28,12 +28,16 @@ const Productintro = () => {
 
   const addToCart = async () => {
     try {
+      if (!token || token === "undefined") {
+        setMessage("Please Login First!");
+        return;
+      }
       setLoading(true);
       const response = await fetch(`${process.env.REACT_APP_API}/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          "Authorization": `${token}`,
         },
         body: JSON.stringify({ user_id, product_id: id }),
       });
@@ -55,7 +59,7 @@ const Productintro = () => {
     if (message) {
       timer = setTimeout(() => {
         setMessage(null);
-      }, 1000);
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, [message]);

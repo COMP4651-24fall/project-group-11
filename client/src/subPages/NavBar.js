@@ -62,10 +62,12 @@ const Navbar = () => {
   useEffect(() => {
     const checkTokenExpiration = () => {
       if (isTokenExpired(token)) {
-        handleLogout();
+        localStorage.removeItem("token");
+        localStorage.removeItem("username");
+        localStorage.removeItem("userId");
       }
     };
-    const interval = setInterval(checkTokenExpiration, 60000);
+    const interval = setInterval(checkTokenExpiration, 5000);
     return () => clearInterval(interval);
   }, [token]);
 

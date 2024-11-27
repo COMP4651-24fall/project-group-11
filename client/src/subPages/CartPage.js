@@ -19,7 +19,7 @@ const PurchasePage = () => {
         `${process.env.REACT_APP_API}/cart/${user_id}`,
         {
           headers: {
-            "Authorization": `Bearer ${token}`,
+            "Authorization": `${token}`,
           },
         }
       );
@@ -48,7 +48,7 @@ const PurchasePage = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          "Authorization": `${token}`,
         },
         body: JSON.stringify({ user_id, total_price: totalPrice}),
       });
@@ -61,7 +61,7 @@ const PurchasePage = () => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Authorization": `Bearer ${token}`,
+              "Authorization": `${token}`,
             },
             body: JSON.stringify({ orderItemsValues }),
           });
@@ -71,7 +71,7 @@ const PurchasePage = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          "Authorization": `${token}`,
         },
         body: JSON.stringify({ user_id }),
       });
@@ -107,7 +107,7 @@ const PurchasePage = () => {
     if (message) {
       timer = setTimeout(() => {
         setMessage(null);
-      }, 1000);
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, [message]);
